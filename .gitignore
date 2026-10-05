@@ -1,0 +1,36 @@
+# Vivado generated files
+*.jou
+*.log
+*.str
+*.wdb
+*.wcfg
+*.dcp
+*.rpt
+*.pb
+*.rpx
+*.xml
+
+# Vivado generated directories
+.Xil/
+xsim.dir/
+.cache/
+.hw/
+.runs/
+
+# Vivado project-generated directories
+FPGA_USB_Device.cache/
+FPGA_USB_Device.hw/
+FPGA_USB_Device.runs/
+
+# Simulation generated files
+sim/
+*.wlf
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
