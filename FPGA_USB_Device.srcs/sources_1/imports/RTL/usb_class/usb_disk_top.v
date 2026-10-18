@@ -8,7 +8,7 @@
 
 module usb_disk_top #(
     parameter BLOCK_COUNT = 65536,    // block count of the disk, each block has 512 bytes
-    parameter DEBUG       = "FALSE"   // whether to output USB debug info, "TRUE" or "FALSE"
+    parameter DEBUG       = "TRUE"   // whether to output USB debug info, "TRUE" or "FALSE"
 ) (
     input  wire        rstn,          // active-low reset, reset when rstn=0 (USB will unplug when reset), normally set to 1
     input  wire        clk,           // 60MHz is required
@@ -251,7 +251,7 @@ usbfs_core_top  #(
     .ep04_valid         (                  ),
     .debug_en           ( debug_en         ),
     .debug_data         ( debug_data       ),
-    .debug_uart_tx      (    )
+    .debug_uart_tx      (  debug_uart_tx  )
 );
 
 

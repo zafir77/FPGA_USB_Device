@@ -12,7 +12,7 @@ set_property -dict { PACKAGE_PIN H5 IOSTANDARD LVCMOS33 } [get_ports { led }]
 
 
 ## BTN0
-set_property -dict { PACKAGE_PIN D9 IOSTANDARD LVCMOS33 } [get_ports { button }]
+set_property -dict { PACKAGE_PIN C2 IOSTANDARD LVCMOS33 } [get_ports { button }]
 
 
 ## =========================================================
@@ -38,3 +38,4 @@ set_property CONFIG_VOLTAGE 3.3 [current_design]
 ## =========================================================
 ## Debug UART
 ## =========================================================
+set_property -dict { PACKAGE_PIN D10 IOSTANDARD LVCMOS33 } [get_ports { uart_tx }]

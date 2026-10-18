@@ -28,7 +28,7 @@ module usbfs_core_top #(
     parameter             EP02_ISOCHRONOUS  = 0,                  // endpoint 02 is ISOCHRONOUS ?
     parameter             EP03_ISOCHRONOUS  = 0,                  // endpoint 03 is ISOCHRONOUS ?
     parameter             EP04_ISOCHRONOUS  = 0,                  // endpoint 04 is ISOCHRONOUS ?
-    parameter             DEBUG             = "FALSE"             // whether to output debug info, "TRUE" or "FALSE"
+    parameter             DEBUG             = "TRUE"             // whether to output debug info, "TRUE" or "FALSE"
 ) (
     input  wire        rstn,          // active-low reset, reset when rstn=0 (USB will unplug when reset)
     input  wire        clk,           // 60MHz is required

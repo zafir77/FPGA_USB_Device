@@ -16,7 +16,9 @@ module fpga_top_usb_disk (
     // USB signals
     output wire        usb_dp_pull,  // connect to USB D+ by an 1.5k resistor
     inout              usb_dp,       // connect to USB D+
-    inout              usb_dn       // connect to USB D-
+    inout              usb_dn,       // connect to USB D-
+   output wire uart_tx
+   
    );
 
 
@@ -35,7 +37,7 @@ wire       clk_locked;
 wire       clkfb;
 wire       clkfb_buf;
 wire       clk60mhz_buf;
-
+/*
 MMCME2_BASE #(
     .BANDWIDTH("OPTIMIZED"),
     .CLKFBOUT_MULT_F(12.0),
@@ -64,6 +66,16 @@ BUFG u_bufg_clk60 (
     .O(clk60mhz)
 );
 
+*/
+clk_wiz_0 clock_60
+   (
+    // Clock out ports
+    .clk_out1(clk60mhz),     // output clk_out1
+    // Status and control signals
+    .resetn(button), // input resetn
+    .locked(clk_locked),       // output locked
+   // Clock in ports
+    .clk_in1(clk100mhz));      // input clk_in1
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 // USB-MSC disk device
@@ -76,7 +88,7 @@ reg  [ 7:0] mem_rdata;
 
 usb_disk_top #(
     .BLOCK_COUNT     ( 48                  ),   // block count of the disk, each block has 512 bytes. Here it has 48 blocks = 24kiB
-    .DEBUG           ( "FALSE"             )    // If you want to see the debug info of USB device core, set this parameter to "TRUE"
+    .DEBUG           ( "TRUE"             )    // If you want to see the debug info of USB device core, set this parameter to "TRUE"
 ) u_usb_disk (
     .rstn            ( clk_locked & button ),
     .clk             ( clk60mhz            ),
